@@ -1,3 +1,7 @@
+Milan
+Which tasks are done and left to do....perhaps an annotation system, similar to "dot journaling" would be appropriate and include the Key/Legend on the bottom of the page.  Thoughts?
+
+
 Must Do:
 * Add Graphic Indicator to let the user know the save was successful.
 * Finish Readme file
