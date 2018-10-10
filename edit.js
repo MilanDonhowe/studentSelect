@@ -1,18 +1,32 @@
 'use strict';
 
 // This variable is for setting which file to write to (post request).
-var periodChange = 0;
+
 
 window.onload = function() {
 	document.getElementById("save").addEventListener("click", save);
-	document.getElementById("btn").addEventListener("click", selectedPeriod);
+	//document.getElementById("btn").addEventListener("click", selectedPeriod);
+
+	chrome.storage.local.get(['key'], function(value){
+		let list = value.key;
+		console.log(value.key);
+		let port = chrome.extension.connect({
+			name: "Load Student Names"
+		});
+
+		port.postMessage(list);
+
+		port.onMessage.addListener(function(msg){
+			console.log('recieved msg');
+			let listDisplay = msg;
+			document.getElementById('display').value += listDisplay.join('\n');
+		});
+
+	});
 }
 
 let save =() => {
 	
-	if (periodChange == 0) {
-			periodChange = document.getElementById("periodSelect").value;
-	}
 	
 	let textdata = document.getElementById('display').value;
 	
@@ -24,14 +38,14 @@ let save =() => {
 					return value != "" && value != undefined
 	}
 	
-	//console.log(studentNames.unshift(periodChange));
-	
-	studentNames.unshift(periodChange);
-	
-	let port = chrome.extension.connect({
-		name: "Save Student Names"
+	chrome.storage.local.get(['key'], function(value){
+		studentNames.unshift(value.key);
+		let port = chrome.extension.connect({
+			name: "Save Student Names"
+		});
+		port.postMessage(studentNames);
+		//console.log(studentNames);
 	});
-	port.postMessage(studentNames);
 	
 }
 
@@ -56,7 +70,7 @@ let selectedPeriod = () => {
 		//console.log(msg);
 		
 		
-		document.getElementById('display').value += students.join('\n');;
+		document.getElementById('display').value += students.join('\n');
 		//add text to text-area
 		
 		//for(let i=0;i<students.length;i++){
