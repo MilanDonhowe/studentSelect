@@ -1,0 +1,7 @@
+10.9.18	- Version 1.4
+Created Devlog
+Polished UI elements by replacing the select button with a drop down menu.
+Period 1 is loaded by default on page load.
+Edit page now remembers which period was selected on popup.html
+Removed select button and drop down menu on edit.html for better elegance.
+Changed background script persistent setting to false for better performance.
