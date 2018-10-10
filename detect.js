@@ -13,8 +13,9 @@ window.onload = function() {
 
 	//load default period 1 on load
 	chrome.storage.local.get({"period1": []}, function(msg){
-		students = msg.period1.join(', ');
-		document.getElementById("display").textContent = "Students: " + students;
+		students = msg.period1;
+		let firstDisplay = msg.period1.join(', ');
+		document.getElementById("display").textContent = "Students: " + firstDisplay;
 	});
 
 }
