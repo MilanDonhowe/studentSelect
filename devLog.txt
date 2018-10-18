@@ -29,7 +29,8 @@
 + added legend to bottom of dev log
 * changed name of dev log text file ("dev log.txt" to "devLog.txt")
 
-
+10.18.18  - Version: 1.5  Name: "Autoload Update"
++ added feature so last edited list is autoloaded into extension
 
 
 

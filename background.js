@@ -3,8 +3,14 @@
 chrome.runtime.onInstalled.addListener(function() {
 	console.log(' background.js loaded');
 	
-	// set example class
+
+	// autoload class variable
+	chrome.storage.local.set({"autoload": "period1"}, function(){
+		console.log('saved autoload class')
+	});
+
 	
+	// set example class
 	let periodExample = "period1";
 	let studentsExample = ["John", "Dave", "Anderson", "Rye", "Jane", "Elizabeth", "Mr. Darcy"];
 	chrome.storage.local.set({"period1": studentsExample}, function(){

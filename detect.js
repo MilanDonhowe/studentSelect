@@ -12,10 +12,35 @@ window.onload = function() {
 	document.getElementById('edit').addEventListener("click", editSetup);
 
 	//load default period 1 on load
-	chrome.storage.local.get({"period1": []}, function(msg){
-		students = msg.period1;
-		let firstDisplay = msg.period1.join(', ');
-		document.getElementById("display").textContent = "Students: " + firstDisplay;
+	chrome.storage.local.get(["autoload"], function(msg){
+		let autoStudents = msg.autoload;
+		console.log(msg.autoStudents);
+		// request class list from background
+		let port = chrome.extension.connect({
+			name: "Autoload Student List"
+		});
+
+		port.postMessage(autoStudents);
+		port.onMessage.addListener(function(msg){
+			console.log("message received");
+		
+			console.log(msg);
+		
+			students = msg;
+			let displayStudents = msg.join(", ");
+
+			// create the display
+			document.getElementById('display').textContent = "Students: " + displayStudents;
+			
+			// change the selected index of the drop down list
+
+			let newIndex = autoStudents[autoStudents.length-1]-1;
+			console.log(newIndex);
+			document.getElementById("periodSelect").selectedIndex = newIndex;
+		});
+
+		//let firstDisplay = msg.period1.join(', ');
+		//document.getElementById("display").textContent = "Students: " + firstDisplay;
 	});
 
 }
@@ -35,6 +60,9 @@ let selectedPeriod = () => {
 	// get period value
 	let period = document.getElementById("periodSelect").value;
 	
+	// change autoload value
+	chrome.storage.local.set({"autoload": period});
+
 	let port = chrome.extension.connect({
 		name: "Load Student Names"
 	});
