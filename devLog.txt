@@ -1,0 +1,55 @@
+[----------------------------------------------------------------------]          
+[----------------------------------------------------------------------]
+[----------------------------------------------------------------------]
+[   _______   _______ ____    ____     __        ______     _______    ]
+[  |       \ |   ____|\   \  /   /    |  |      /  __  \   /  _____|   ]
+[  |  .--.  ||  |__    \   \/   /     |  |     |  |  |  | |  |  __     ]
+[  |  |  |  ||   __|    \      /      |  |     |  |  |  | |  | |_ |    ]
+[  |  '--'  ||  |____    \    /       |  `----.|  `--'  | |  |__| |    ]
+[  |_______/ |_______|    \__/        |_______| \______/   \______|    ]
+[----------------------------------------------------------------------]
+[Legend is located at the bottom of file.                              ]
+[Details changes made to the program and goals for future development. ]
+[----------------------------------------------------------------------]
+[----------------------------------------------------------------------]
+[----------------------------------------------------------------------]
+
+10.9.18	- Version: 1.4 Name: "UI Update"
++ Created Devlog
++ Polished UI elements by replacing the select button with a drop down menu.
++ Period 1 is loaded by default on page load.
++ Edit page now remembers which period was selected on popup.html
+- Removed select button and drop down menu on edit.html for better elegance.
+* Changed background script persistent setting to false for better performance.
+
+10.17.18  - Version: N/A Name: "Dev Log Change 1"
+- deleted redundent index.html
+- Deleted todo.txt
++ added goals from todo.txt into devLog.txt
++ added legend to bottom of dev log
+* changed name of dev log text file ("dev log.txt" to "devLog.txt")
+
+
+
+
+
+CURRENT GOALS:
+
+# Improve the graphics of the program.
+# Make extension save last edited list.
+
+PLANNED OR POSSIBLE FUTURE FEATURES:
+
+# Different modes of shuffling students
+# "Elimination mode" for choosing students.
+# Don't pick the last three selected students.
+# Develop a version that syncs data across browsers?
+# Add 
+
+
+
+LEGEND:
+"+" means addition to the program.
+"-" means deletion to the program.
+"*" means a modification to an existing feature to the program.
+"#" means a planned feature or current goal.
