@@ -11,6 +11,8 @@ chrome.runtime.onInstalled.addListener(function() {
 
 	
 	// set example class
+	//  For Debugging Purposes Only
+	/*
 	let periodExample = "period1";
 	let studentsExample = ["John", "Dave", "Anderson", "Rye", "Jane", "Elizabeth", "Mr. Darcy"];
 	chrome.storage.local.set({"period1": studentsExample}, function(){
@@ -19,6 +21,7 @@ chrome.runtime.onInstalled.addListener(function() {
 	chrome.storage.local.get({"period1": []}, function(data){
 		console.log(data.period1)
 	});
+	*/
 });
 
 
@@ -33,7 +36,7 @@ chrome.extension.onConnect.addListener(function(port) {
 		
 		
 		if (Array.isArray(msg)){
-			
+			// Save new list data
 			let test = msg[0];
 			
 			switch(test){
@@ -107,7 +110,7 @@ chrome.extension.onConnect.addListener(function(port) {
 			}
 			
 		} else {
-		
+		// Send list data over to detect.js
 			switch (msg){
 		
 				case "period1":
